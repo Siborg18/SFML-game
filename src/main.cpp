@@ -21,6 +21,47 @@ sf::Font loadmyFont()
     return font;
 }
 
+
+bool locationValid(sf::Shape &shape)
+{
+    sf::Vector2f temp = shape.getPosition();
+    int x = temp.x + 1;
+    int y = temp.y + 1;
+
+    if (x > 800 || x < 0)
+    {
+        return false;
+    }
+
+    if (y > 600 || y < 0)
+    {
+        return false;
+    }
+
+return true;
+}
+
+bool locationValid(sf::Text &text)
+{
+    sf::Vector2f temp = text.getPosition();
+    int x = temp.x + 1;
+    int y = temp.y + 1;
+
+    if (x > 800 || x < 0)
+    {
+        return false;
+    }
+
+    if (y > 600 || y < 0)
+    {
+        return false;
+    }
+
+return true;
+}
+
+
+
 int main()
 {
     std::cout << getexepath();
@@ -45,7 +86,16 @@ int main()
         window.clear();
         window.draw(shape);
         window.draw(someText);
+        if (locationValid(shape))
+        {
+            shape.move(1.5 , 1.5);  
+        }
+        if (locationValid(someText))
+        {
+            someText.move(1.f, 1.f);
+        }
         window.display();
+        
     }
 
     return 0;
