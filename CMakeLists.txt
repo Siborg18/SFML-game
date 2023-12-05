@@ -10,7 +10,7 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(SFMLTest src/main.cpp)
+add_executable(SFMLTest src/main.cpp src/shapes.cpp)
 target_link_libraries(SFMLTest PRIVATE sfml-graphics)
 target_compile_features(SFMLTest PRIVATE cxx_std_17)
 
